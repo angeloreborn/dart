@@ -27,7 +27,7 @@ namespace dart_core.Services.Diagnostic
 
         public void Log(ServiceDiagnostic serviceDiagnostic)
         {
-            _diagnosticDbContext.
+            
         }
 
        

@@ -23,7 +23,7 @@ namespace dart_core.Services.Diagnostic
             return new ServiceDiagnostic
             {
 
-            }
+            };
         }
     }
 }
