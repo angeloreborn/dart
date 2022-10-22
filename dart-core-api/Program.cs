@@ -3,6 +3,7 @@ using dart_core_api.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.OpenApi;
+using dart_core_api.Hubs;
 
 namespace dart_main
 {
@@ -17,6 +18,7 @@ namespace dart_main
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddDbContext<DbContext>();
             builder.Services.AddDbContext<DiagnosticDbContext>();
+            builder.Services.AddSignalR();
 
             using (var db = new DiagnosticDbContext())
             {
@@ -36,6 +38,8 @@ namespace dart_main
             }
 
             app.UseHttpsRedirection();
+
+            app.MapHub<TestHub>("/dart-testHub");
 
             app.UseAuthorization();
             app.MapControllers();
