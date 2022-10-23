@@ -19,6 +19,14 @@ namespace dart_main
             builder.Services.AddDbContext<DbContext>();
             builder.Services.AddDbContext<DiagnosticDbContext>();
             builder.Services.AddSignalR();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: "TestCors",
+                     builder =>
+                     {
+                         builder.WithOrigins("http://localhost:3000");
+                     });
+            });
 
             using (var db = new DiagnosticDbContext())
             {
@@ -36,6 +44,13 @@ namespace dart_main
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyHeader();
+                builder.AllowAnyMethod();
+                builder.AllowAnyOrigin();
+            });
 
             app.UseHttpsRedirection();
 

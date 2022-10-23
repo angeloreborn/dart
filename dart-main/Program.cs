@@ -24,7 +24,6 @@ namespace dart_main
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
