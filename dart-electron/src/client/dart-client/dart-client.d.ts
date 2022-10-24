@@ -1,3 +1,0 @@
-interface exmaple{
-    s:string
-}

@@ -4,6 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.OpenApi;
 using dart_core_api.Hubs;
+using Ninject;
+using dart_core_api.Ninject;
+using dart_core.Services.Project;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace dart_main
 {
@@ -18,7 +23,11 @@ namespace dart_main
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddDbContext<DbContext>();
             builder.Services.AddDbContext<DiagnosticDbContext>();
+            builder.Services.ConfigureServices();
             builder.Services.AddSignalR();
+            
+           
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "TestCors",
@@ -44,7 +53,7 @@ namespace dart_main
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseCors(builder =>
             {
                 builder.AllowAnyHeader();
@@ -54,7 +63,7 @@ namespace dart_main
 
             app.UseHttpsRedirection();
 
-            app.MapHub<TestHub>("/dart-testHub");
+            app.MapHub<ContainerHub>("/ContainerHub");
 
             app.UseAuthorization();
             app.MapControllers();
