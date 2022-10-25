@@ -1,4 +1,4 @@
-﻿using dart_core.Services.Project;
+﻿using dart_core_api.Services.Project;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dart_core.Services.System
+namespace dart_core_api.Services.System
 {
     public interface IServiceFactory
     {

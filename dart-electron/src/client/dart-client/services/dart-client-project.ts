@@ -5,8 +5,8 @@ export class ProjectService<T> extends ConnectionService<T>{
         super(connection, container)
     }
 
-    public requestAllProjects(){
-        this.invokeService(this.requestAllProjects.name)
+    public All(){
+        this.invokeService(this.All.name)
     }
 
 }

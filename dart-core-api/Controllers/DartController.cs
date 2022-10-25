@@ -1,5 +1,5 @@
 ﻿using dart_core.Helper.Response;
-using dart_core.Services.Diagnostic;
+using dart_core_api.Services.Diagnostic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dart_core_api.Controllers

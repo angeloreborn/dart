@@ -14,4 +14,8 @@ export class ConnectionService<T>{
         }
         this.connection.send("ServiceHandler", this.container, method, obj);
     }
+
+    public All(){
+        this.invokeService(this.All.name)
+    }
 }

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.OpenApi;
 using dart_core_api.Hubs;
 using Ninject;
 using dart_core_api.Ninject;
-using dart_core.Services.Project;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +22,7 @@ namespace dart_main
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddDbContext<DbContext>();
             builder.Services.AddDbContext<DiagnosticDbContext>();
+            builder.Services.AddDbContext<MainDbContext>();
             builder.Services.ConfigureServices();
             builder.Services.AddSignalR();
             
@@ -37,10 +37,16 @@ namespace dart_main
                      });
             });
 
-            using (var db = new DiagnosticDbContext())
+            using (var diagnosticDatabase = new DiagnosticDbContext())
             {
-                db.Database.EnsureCreated();
-                db.Database.Migrate();
+                diagnosticDatabase.Database.EnsureCreated();
+                diagnosticDatabase.Database.Migrate();
+            }
+
+            using (var mainDatabase = new MainDbContext())
+            {
+                mainDatabase.Database.EnsureCreated();
+                mainDatabase.Database.Migrate();
             }
 
             builder.Services.AddSwaggerGen();

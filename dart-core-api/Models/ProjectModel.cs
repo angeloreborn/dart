@@ -1,7 +1,7 @@
 ﻿namespace dart_core_api.Models
 {
-    public class Project
+    public class ProjectModel : BaseModel
     {
-
+    
     }
 }

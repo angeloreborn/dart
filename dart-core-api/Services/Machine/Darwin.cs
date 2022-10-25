@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dart_core.Services.Machine
+namespace dart_core_api.Services.Machine
 {
     public interface IDarwin
     {

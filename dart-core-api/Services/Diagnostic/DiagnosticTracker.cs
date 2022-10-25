@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dart_core.Services.Diagnostic
+namespace dart_core_api.Services.Diagnostic
 {
     public class DiagnosticTracker
     {
