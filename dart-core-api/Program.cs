@@ -8,6 +8,10 @@ using Ninject;
 using dart_core_api.Ninject;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
+using TypeGen.Core.Generator;
+using Newtonsoft.Json;
+using dart_core_api.Helper;
 
 namespace dart_main
 {
@@ -24,10 +28,7 @@ namespace dart_main
             builder.Services.AddDbContext<DiagnosticDbContext>();
             builder.Services.AddDbContext<MainDbContext>();
             builder.Services.ConfigureServices();
-            builder.Services.AddSignalR();
-            
-           
-
+            builder.Services.AddSignalR();        
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "TestCors",
@@ -36,6 +37,8 @@ namespace dart_main
                          builder.WithOrigins("http://localhost:3000");
                      });
             });
+
+            Application.SyncModels();
 
             using (var diagnosticDatabase = new DiagnosticDbContext())
             {
@@ -48,7 +51,7 @@ namespace dart_main
                 mainDatabase.Database.EnsureCreated();
                 mainDatabase.Database.Migrate();
             }
-
+      
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();

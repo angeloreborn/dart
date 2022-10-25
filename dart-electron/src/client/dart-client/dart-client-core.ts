@@ -4,6 +4,7 @@ import { ProjectService } from './services/dart-client-project'
 class DartClient{
     private connection : signalR.HubConnection;
     public project : ProjectService<ProjectModel>;
+    
     // client services
     constructor() {
         this.connection = new signalR.HubConnectionBuilder()
