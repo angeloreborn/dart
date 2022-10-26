@@ -28,6 +28,7 @@ namespace dart_core_api.Services.Base
         public EntityEntry<ServiceType> Update(ServiceType serviceType) => _dbContext.Set<ServiceType>().Update(serviceType);
         public void UpdateRange(ServiceType serviceType) => _dbContext.Set<ServiceType>().UpdateRange(serviceType);
         public bool Exists(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Any(filter);
-        public List<ServiceType> Paginate(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
+        public List<ServiceType> Paginate(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();   
+        public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable<ServiceType>();
     }
 }
