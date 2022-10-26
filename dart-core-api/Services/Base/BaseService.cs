@@ -1,7 +1,18 @@
-﻿using dart_core_api.Helper;
+﻿using AutoMapper;
+using dart_core_api.Helper;
+using dart_core_api.Models;
+using dart_core_api.Services.Project;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.Query.Internal;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace dart_core_api.Services.Base
 {
@@ -19,7 +30,6 @@ namespace dart_core_api.Services.Base
         {
             _dbContext = dbContext;
         }
-
         public List<ServiceType> All() => _dbContext.Set<ServiceType>().ToList();
         public List<ServiceType> Filter(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).ToList();
         public EntityEntry<ServiceType> Delete(ServiceType serviceType) => _dbContext.Set<ServiceType>().Remove(serviceType);
@@ -28,7 +38,8 @@ namespace dart_core_api.Services.Base
         public EntityEntry<ServiceType> Update(ServiceType serviceType) => _dbContext.Set<ServiceType>().Update(serviceType);
         public void UpdateRange(ServiceType serviceType) => _dbContext.Set<ServiceType>().UpdateRange(serviceType);
         public bool Exists(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Any(filter);
-        public List<ServiceType> Paginate(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();   
-        public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable<ServiceType>();
+        public List<ServiceType> Paginate<TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
+        public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable();
     }
 }
+
