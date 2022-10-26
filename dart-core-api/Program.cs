@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.OpenApi;
 using dart_core_api.Hubs;
 using Ninject;
-using dart_core_api.Ninject;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
