@@ -1,6 +1,10 @@
 ﻿namespace dart_core_api.Services.System
 {
-    public class ServiceTools
+    public interface IServiceTools
+    {
+
+    }
+    public class ServiceTools : IServiceTools
     {
 
     }

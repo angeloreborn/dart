@@ -13,6 +13,7 @@ namespace dart_core_api
             services.AddTransient<IDiagnosticService, DiagnosticService>();
             services.AddTransient<IProjectService, ProjectService>();
             services.AddScoped<IServiceFactory, ServiceFactory>();
+            services.AddScoped<IServiceTools, ServiceTools>();
            // services.AddSingleton(new ContainerHub(services.BuildServiceProvider()));
 
         }
