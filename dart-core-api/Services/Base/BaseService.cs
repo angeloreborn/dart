@@ -27,12 +27,14 @@ namespace dart_core_api.Services.Base
     {
         private readonly DbContext _dbContext;
         private DbSet<ServiceType>? _dbSet;
-        public BaseService(DbContext dbContext, IServiceTools _tools)
+        private IServiceTools _tools;
+        public BaseService(DbContext dbContext, IServiceTools tools)
         {
             _dbContext = dbContext;
+            _tools = tools;
         }
         public List<ServiceType> All() => _dbContext.Set<ServiceType>().ToList();
-       // public List<TOutServiceType> All<TOutServiceType>() => _dbContext.Set<ServiceType>().ToList();
+        public List<TOutServiceType?> All<TOutServiceType>() where TOutServiceType : class => _dbContext.Set<ServiceType>().Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public List<ServiceType> Filter(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).ToList();
         public EntityEntry<ServiceType> Delete(ServiceType serviceType) => _dbContext.Set<ServiceType>().Remove(serviceType);
         public void DeleteBy(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().RemoveRange(Filter(filter));

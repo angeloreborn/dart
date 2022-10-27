@@ -2,7 +2,7 @@
 {
     public interface IServiceTools
     {
-
+        TModelOut? Map<TModelIn, TModelOut>(TModelIn from);
     }
     public class ServiceTools : IServiceTools
     {
