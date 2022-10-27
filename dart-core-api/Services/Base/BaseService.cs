@@ -36,7 +36,7 @@ namespace dart_core_api.Services.Base
         public List<ServiceType> All() => _dbContext.Set<ServiceType>().ToList();
         public List<TOutServiceType?> All<TOutServiceType>() where TOutServiceType : class => _dbContext.Set<ServiceType>().Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public List<ServiceType> Filter(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).ToList();
-        public List<TOutServiceType?>Filter<TOutServiceType>(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
+        public List<TOutServiceType?> Filter<TOutServiceType>(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public EntityEntry<ServiceType> Delete(ServiceType serviceType) => _dbContext.Set<ServiceType>().Remove(serviceType);
         public void DeleteBy(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().RemoveRange(Filter(filter));
         public EntityEntry<ServiceType> Add(ServiceType serviceType) => _dbContext.Set<ServiceType>().Add(serviceType);
@@ -44,16 +44,22 @@ namespace dart_core_api.Services.Base
         public void UpdateRange(ServiceType serviceType) => _dbContext.Set<ServiceType>().UpdateRange(serviceType);
         public bool Exists(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Any(filter);
         public List<ServiceType> Paginate<TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
-        public List<TOutServiceType?> Paginate<TOutServiceType,TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
+        public List<TOutServiceType?> Paginate<TOutServiceType, TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable();
-        public BaseDbService<ServiceType> Include<TProp>(params Expression<Func<ServiceType,TProp>>[] expressions)
+        public BaseDbService<ServiceType> Include<TProp>(params Expression<Func<ServiceType, TProp>>[] expressions)
         {
             _dbSet = _dbContext.Set<ServiceType>();
             expressions.SelectMany(x => _dbSet.Include(x.Body.ToString()));
 
             return new BaseDbService<ServiceType>(_dbSet, _tools);
         }
+        public ChangeTracker Save()
+        {
+            _dbContext.SaveChanges();
+            return _dbContext.ChangeTracker;
+        }
     }
+
 
     public class BaseDbService<DServiceType> where DServiceType : class
     {
@@ -69,6 +75,5 @@ namespace dart_core_api.Services.Base
         public List<DServiceType> Paginate<TProperty>(Expression<Func<DServiceType, bool>> filter, Paging paging) => _dbSet.Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
         public List<TOutServiceType?> Paginate<TOutServiceType, TProperty>(Expression<Func<DServiceType, bool>> filter, Paging paging) => _dbSet.Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<DServiceType, TOutServiceType>(sourceEntity)).ToList();
         public IQueryable<DServiceType> Query() => _dbSet.AsQueryable();
-
     }
 }
