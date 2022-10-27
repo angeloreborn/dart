@@ -1,5 +1,5 @@
 ﻿using dart_core_api.Contexts;
-using dart_core_api.Models;
+using dart_core_api.Schemas.MainSchema;
 using dart_core_api.Services.Base;
 using dart_core_api.Services.System;
 using Microsoft.EntityFrameworkCore;

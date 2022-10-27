@@ -1,6 +1,6 @@
 ﻿using dart_core.Helper.Response;
 using dart_core.Helper.Tools;
-using dart_core_api.Models;
+using dart_core_api.Schemas.DiagnosticSchema;
 using dart_core_api.Services.Base;
 using dart_core_api.Services.Project;
 using dart_core_api.Services.System;

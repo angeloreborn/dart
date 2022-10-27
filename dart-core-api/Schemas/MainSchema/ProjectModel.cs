@@ -3,8 +3,8 @@ using TypeGen.Core.TypeAnnotations;
 
 namespace dart_core_api.Schemas.MainSchema
 {
-    [ExportTsInterface]
     [ExportTsClass]
+    [ExportTsInterface]
     public class ProjectModel : BaseModel
     {
 

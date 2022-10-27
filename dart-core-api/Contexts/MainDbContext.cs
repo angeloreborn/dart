@@ -1,4 +1,4 @@
-﻿using dart_core_api.Models;
+﻿using dart_core_api.Schemas.MainSchema;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;

@@ -11,6 +11,7 @@ using System.Reflection;
 using TypeGen.Core.Generator;
 using Newtonsoft.Json;
 using dart_core_api.Helper;
+using dart_core_api.Config;
 
 namespace dart_main
 {
@@ -38,6 +39,7 @@ namespace dart_main
             });
 
             Application.SyncModels();
+            Config.Initialize();
 
             using (var diagnosticDatabase = new DiagnosticDbContext())
             {

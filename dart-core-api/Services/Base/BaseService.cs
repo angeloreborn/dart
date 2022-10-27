@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -30,6 +31,7 @@ namespace dart_core_api.Services.Base
         private readonly DbContext _dbContext;
         private DbSet<ServiceType>? _dbSet;
         private IServiceTools _tools;
+        private SaveOptions _saveOptions = new();
         public BaseService(DbContext dbContext, IServiceTools tools)
         {
             _dbContext = dbContext;
@@ -55,7 +57,7 @@ namespace dart_core_api.Services.Base
 
             return new BaseDbService<ServiceType>(_dbSet, _tools);
         }
-        public ChangeTracker Save(SaveOptions saveOptions)
+        public ChangeTracker Save(SaveOptions saveOptions = null)
         {
             _dbContext.SaveChanges();
 

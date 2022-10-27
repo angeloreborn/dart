@@ -3,6 +3,8 @@
  * Any changes made to this file can be lost when this file is regenerated.
  */
 
-export * from './project-model';
-export * from './base-model';
-export * from './diagnostic-model';
+import { BaseModel } from "./base-model";
+
+export class DiagnosticModel extends BaseModel {
+
+}
