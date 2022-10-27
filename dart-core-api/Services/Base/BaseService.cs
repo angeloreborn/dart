@@ -10,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace dart_core_api.Services.Base
 {
@@ -53,14 +55,27 @@ namespace dart_core_api.Services.Base
 
             return new BaseDbService<ServiceType>(_dbSet, _tools);
         }
-        public ChangeTracker Save()
+        public ChangeTracker Save(SaveOptions saveOptions)
         {
             _dbContext.SaveChanges();
+
+            _dbContext.ChangeTracker.DetectChanges();
+
+            if (_dbContext.ChangeTracker.HasChanges())
+            {
+
+            }
+
             return _dbContext.ChangeTracker;
         }
     }
 
-
+    public class SaveOptions
+    {
+        [DefaultValue(false)]
+        public bool SaveStateChange { get; set; }
+        public bool MyProperty { get; set; }
+    }
     public class BaseDbService<DServiceType> where DServiceType : class
     {
         private readonly DbSet<DServiceType> _dbSet;
