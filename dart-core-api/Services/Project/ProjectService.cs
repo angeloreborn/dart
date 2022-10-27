@@ -1,6 +1,7 @@
 ﻿using dart_core_api.Contexts;
 using dart_core_api.Models;
 using dart_core_api.Services.Base;
+using dart_core_api.Services.System;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,11 @@ namespace dart_core_api.Services.Project
     public class ProjectService : BaseService<ProjectModel>, IProjectService 
     {
         private readonly MainDbContext _dbMain;
-        public ProjectService(MainDbContext dbMain): base(dbMain) 
+        private readonly IServiceTools _tools;
+        public ProjectService(MainDbContext dbMain, IServiceTools tools) : base(dbMain , tools) 
         {
             _dbMain = dbMain;
+            _tools = tools;
         }
 
     }

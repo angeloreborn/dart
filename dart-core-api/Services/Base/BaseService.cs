@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using dart_core_api.Helper;
+﻿using dart_core_api.Helper;
 using dart_core_api.Models;
 using dart_core_api.Services.Project;
+using dart_core_api.Services.System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -27,11 +27,12 @@ namespace dart_core_api.Services.Base
     {
         private readonly DbContext _dbContext;
         private DbSet<ServiceType>? _dbSet;
-        public BaseService(DbContext dbContext)
+        public BaseService(DbContext dbContext, IServiceTools _tools)
         {
             _dbContext = dbContext;
         }
         public List<ServiceType> All() => _dbContext.Set<ServiceType>().ToList();
+       // public List<TOutServiceType> All<TOutServiceType>() => _dbContext.Set<ServiceType>().ToList();
         public List<ServiceType> Filter(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).ToList();
         public EntityEntry<ServiceType> Delete(ServiceType serviceType) => _dbContext.Set<ServiceType>().Remove(serviceType);
         public void DeleteBy(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().RemoveRange(Filter(filter));
