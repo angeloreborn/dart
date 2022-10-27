@@ -50,6 +50,7 @@ namespace dart_core_api.Services.Base
         public List<ServiceType> Paginate<TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
         public List<TOutServiceType?> Paginate<TOutServiceType, TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable();
+        public TOutServiceType? Bind<TInServiceType, TOutServiceType>(TInServiceType sourceEntity) => _tools.Map<TInServiceType, TOutServiceType>(sourceEntity);
         public BaseDbService<ServiceType> Include<TProp>(params Expression<Func<ServiceType, TProp>>[] expressions)
         {
             _dbSet = _dbContext.Set<ServiceType>();
