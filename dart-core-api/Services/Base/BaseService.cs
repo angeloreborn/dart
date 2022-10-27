@@ -67,6 +67,7 @@ namespace dart_core_api.Services.Base
         public List<DServiceType> Filter(Expression<Func<DServiceType, bool>> filter) => _dbSet.Where(filter).ToList();
         public List<TOutServiceType?> Filter<TOutServiceType>(Expression<Func<DServiceType, bool>> filter) => _dbSet.Where(filter).Select(sourceEntity => _tools.Map<DServiceType, TOutServiceType>(sourceEntity)).ToList();
         public List<DServiceType> Paginate<TProperty>(Expression<Func<DServiceType, bool>> filter, Paging paging) => _dbSet.Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
+        public List<TOutServiceType?> Paginate<TOutServiceType, TProperty>(Expression<Func<DServiceType, bool>> filter, Paging paging) => _dbSet.Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<DServiceType, TOutServiceType>(sourceEntity)).ToList();
         public IQueryable<DServiceType> Query() => _dbSet.AsQueryable();
 
     }
