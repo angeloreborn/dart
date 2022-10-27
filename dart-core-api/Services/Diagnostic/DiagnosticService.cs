@@ -3,6 +3,7 @@ using dart_core.Helper.Tools;
 using dart_core_api.Models;
 using dart_core_api.Services.Base;
 using dart_core_api.Services.Project;
+using dart_core_api.Services.System;
 using dart_schema.Diagnostic;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,9 +26,11 @@ namespace dart_core_api.Services.Diagnostic
     public class DiagnosticService : BaseService<DiagnosticModel>, IDiagnosticService
     {
         private readonly DbContext _diagnosticDbContext;
-        public DiagnosticService(DbContext diagnosticDbContext) : base(diagnosticDbContext)
+        private readonly IServiceTools _tools;
+        public DiagnosticService(DbContext diagnosticDbContext, IServiceTools tools) : base(diagnosticDbContext, tools)
         {
             _diagnosticDbContext = diagnosticDbContext;
+            _tools = tools;
         }
 
         public ServiceResponse InvokeWait(int millisecondsTimeout)

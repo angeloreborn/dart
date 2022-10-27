@@ -51,18 +51,21 @@ namespace dart_core_api.Services.Base
             _dbSet = _dbContext.Set<ServiceType>();
             expressions.SelectMany(x => _dbSet.Include(x.Body.ToString()));
 
-            return new BaseDbService<ServiceType>(_dbSet);
+            return new BaseDbService<ServiceType>(_dbSet, _tools);
         }
     }
 
     public class BaseDbService<DServiceType> where DServiceType : class
     {
         private readonly DbSet<DServiceType> _dbSet;
-        public BaseDbService(DbSet<DServiceType> dbSet) 
+        private readonly IServiceTools _tools;
+        public BaseDbService(DbSet<DServiceType> dbSet, IServiceTools tools) 
         {
             _dbSet = dbSet;
+            _tools = tools;
         }
         public List<DServiceType> Filter(Expression<Func<DServiceType, bool>> filter) => _dbSet.Where(filter).ToList();
+        public List<TOutServiceType?> Filter<TOutServiceType>(Expression<Func<DServiceType, bool>> filter) => _dbSet.Where(filter).Select(sourceEntity => _tools.Map<DServiceType, TOutServiceType>(sourceEntity)).ToList();
         public List<DServiceType> Paginate<TProperty>(Expression<Func<DServiceType, bool>> filter, Paging paging) => _dbSet.Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
         public IQueryable<DServiceType> Query() => _dbSet.AsQueryable();
 
