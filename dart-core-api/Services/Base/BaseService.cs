@@ -44,6 +44,7 @@ namespace dart_core_api.Services.Base
         public void UpdateRange(ServiceType serviceType) => _dbContext.Set<ServiceType>().UpdateRange(serviceType);
         public bool Exists(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Any(filter);
         public List<ServiceType> Paginate<TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).ToList();
+        public List<TOutServiceType?> Paginate<TOutServiceType,TProperty>(Expression<Func<ServiceType, bool>> filter, Paging paging) => _dbContext.Set<ServiceType>().Where(filter).Skip(paging.Page * paging.PageSize).Take(paging.PageSize).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public IQueryable<ServiceType> Query() => _dbContext.Set<ServiceType>().AsQueryable();
         public BaseDbService<ServiceType> Include<TProp>(params Expression<Func<ServiceType,TProp>>[] expressions)
         {
