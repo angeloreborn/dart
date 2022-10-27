@@ -3,9 +3,10 @@ using TypeGen.Core.TypeAnnotations;
 
 namespace dart_core_api.Schemas.ConfigSchema
 {
-    [@ShouldNotBeExportedToTsAttribute]
+    /// <summary>
+    /// Should not generate <see cref="ExportTsClassAttribute"/> or <see cref="ExportTsInterfaceAttribute"/>
+    /// </summary>
     public class DatabaseOptionsModel
     {
-        public int MyProperty { get; set; }
     }
 }
