@@ -1,6 +1,7 @@
 ﻿using dart_core_api.Attributes.ReadonlyAnnotations;
 using dart_core_api.Helper;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using TypeGen.Core.TypeAnnotations;
 
 namespace dart_core_api.Config
@@ -32,10 +33,27 @@ namespace dart_core_api.Config
             }
 
             /// <summary>
-            /// sets maximum records for intance of the database context
+            /// controls lifetime and health of database
             /// </summary>
-            [DefaultValue(long.MaxValue)]
-            public static long MaximumRecords { get; set; }
+            public static class Lifetime
+            {
+                /// <summary>
+                /// sets maximum records for intance of the database context
+                /// </summary>
+                [DefaultValue(long.MaxValue)]
+                public static long MaximumRecords { get; set; }
+                /// <summary>
+                /// will purge old records on fullfilment <see cref="MaximumRecords"/>
+                /// </summary>
+                [DefaultValue(false)]
+                public static bool PurgeOldRecords { get; set; }
+                /// <summary>
+                /// ovverides existing lifetime fullfillments and ditributes to a new shard 
+                /// </summary>
+                [DefaultValue(true)]
+                public static bool ShardDatabase { get; set; }
+            }
+
         }
     }
   
