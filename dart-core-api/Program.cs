@@ -27,7 +27,7 @@ namespace dart_main
             builder.Services.AddDbContext<DiagnosticDbContext>();
             builder.Services.AddDbContext<MainDbContext>();
             builder.Services.ConfigureServices();
-            builder.Services.AddSignalR();        
+            builder.Services.AddSignalR();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "TestCors",
@@ -75,7 +75,6 @@ namespace dart_main
 
             app.UseAuthorization();
             app.MapControllers();
-
             app.Run();
         }
     }
