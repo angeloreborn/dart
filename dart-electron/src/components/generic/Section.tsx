@@ -1,13 +1,11 @@
 interface Props {
-    children: any
+  children: any;
 }
 
 function Section(props: Props) {
-    const {children} = props
+  const { children } = props;
 
-    return (
-        <section>{children}</section>
-    )
+  return <section>{children}</section>;
 }
 
-export default Section
+export default Section;

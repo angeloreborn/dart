@@ -1,13 +1,9 @@
 interface Props {}
 
 function DefaultAppBar(props: Props) {
-  const {} = props
+  const {} = props;
 
-  return (
-    <div className='dart-app-bar'>
-
-    </div>
-  )
+  return <div className="dart-app-bar"></div>;
 }
 
-export default DefaultAppBar
+export default DefaultAppBar;
