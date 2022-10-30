@@ -6,5 +6,7 @@
 import { BaseModel } from "./base-model";
 
 export class DiagnosticModel extends BaseModel {
-
+    naRuntime: number;
+    msRuntime: number;
+    scRuntime: number;
 }

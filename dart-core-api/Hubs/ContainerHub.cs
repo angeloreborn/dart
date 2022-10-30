@@ -10,8 +10,7 @@ namespace dart_core_api.Hubs
     public class ContainerHub : Hub
     {
         public async Task ServiceHandler(string container,  string method, object[] obj, 
-            [FromServices] IServiceFactory serviceFactory, 
-            [FromServices]IDiagnosticService diagnosticService)
+            [FromServices] IServiceFactory serviceFactory)
         {
             DiagnosticTracker diagnosticTracker = new DiagnosticTracker();
             object? service = serviceFactory.GetService(container);

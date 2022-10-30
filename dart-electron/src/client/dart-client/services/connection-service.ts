@@ -1,4 +1,4 @@
-import {HubConnectionState} from '@microsoft/signalr'
+import {HubConnection, HubConnectionState} from '@microsoft/signalr'
 
 export class ConnectionService<T>{
     public connection : signalR.HubConnection;
@@ -9,13 +9,17 @@ export class ConnectionService<T>{
     }
 
     public async invokeService<T>(method: string, obj? : T){
-        if (this.connection.state != HubConnectionState.Connected){
-            await this.connection.start();
+        if (this.connection.state == HubConnectionState.Disconnected){
+            console.log('connecting');
+            console.log(this.connection.state);
+            await this.connection.start();   
         }
+        
         this.connection.send("ServiceHandler", this.container, method, obj);
     }
 
-    public All(){
+    public async All(): Promise<HubConnection>{
         this.invokeService(this.All.name)
+        return this.connection;
     }
 }

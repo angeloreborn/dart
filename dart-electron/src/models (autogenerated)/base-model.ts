@@ -6,5 +6,4 @@
 export class BaseModel {
     id: number;
     createdDate: Date;
-    modifiedDate: Date;
 }

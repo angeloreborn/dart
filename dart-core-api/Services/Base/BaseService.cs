@@ -26,7 +26,7 @@ namespace dart_core_api.Services.Base
         void DeleteBy(Expression<Func<ServiceType, bool>> filter);
     }
 
-    public class BaseService<ServiceType> where ServiceType : class
+    public class BaseService<ServiceType> : IBaseService<ServiceType> where ServiceType : class
     {
         private readonly DbContext _dbContext;
         private DbSet<ServiceType>? _dbSet;
@@ -38,7 +38,7 @@ namespace dart_core_api.Services.Base
             _tools = tools;
         }
         public List<ServiceType> All() => _dbContext.Set<ServiceType>().ToList();
-        public List<TOutServiceType?> All<TOutServiceType>() where TOutServiceType : class => _dbContext.Set<ServiceType>().Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
+        public List<TOutServiceType?> AllAs<TOutServiceType>() where TOutServiceType : class => _dbContext.Set<ServiceType>().Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public List<ServiceType> Filter(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).ToList();
         public List<TOutServiceType?> Filter<TOutServiceType>(Expression<Func<ServiceType, bool>> filter) => _dbContext.Set<ServiceType>().Where(filter).Select(sourceEntity => _tools.Map<ServiceType, TOutServiceType>(sourceEntity)).ToList();
         public EntityEntry<ServiceType> Delete(ServiceType serviceType) => _dbContext.Set<ServiceType>().Remove(serviceType);
