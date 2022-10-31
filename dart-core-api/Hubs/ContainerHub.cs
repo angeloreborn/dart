@@ -46,11 +46,10 @@ namespace dart_core_api.Hubs
                         }
                         else
                         {
-                            paramValue = Activator.CreateInstance(param.ParameterType);
+                            paramValue = null;
                         }
                     }
                 }
-                if (paramValue == null) throw new NullReferenceException();
                 invokedParams.Add(paramValue);
             }
             var arg = serviceMethodInfo.Invoke(service, invokedParams.ToArray());
