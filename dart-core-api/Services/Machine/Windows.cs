@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace dart_core_api.Services.Machine
 {
-    public interface IDarwin
+    public interface IWindows
     {
         WindowsIdentity? GetIdentity();
         IAsyncEnumerable<string> Search(string folder, string extention);
     }
 
     [SupportedOSPlatform(OSPlatformType.Windows)]
-    public class Darwin
+    public class Windows : IWindows
     {
         private WindowsIdentity? _identity;
-        public Darwin()
+        public Windows()
         {
             _identity = GetIdentity();
         }
