@@ -1,4 +1,5 @@
-﻿using dart_core_api.Services.Project;
+﻿using dart_core_api.Services.Machine;
+using dart_core_api.Services.Project;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace dart_core_api.Services.System
     public interface IServiceFactory
     {
         object? GetService(string service);
+        object? GetServiceByType(Type serviceType);
     }
     public class ServiceFactory : IServiceFactory
     {
@@ -28,6 +30,15 @@ namespace dart_core_api.Services.System
                 case nameof(IProjectService): return _projectService;
             } 
             return  null;
+        }
+
+        public object? GetServiceByType(Type serviceType)
+        {
+            switch (serviceType)
+            {
+                case IProjectService: return _projectService;
+            }
+            return null;
         }
     }
 }

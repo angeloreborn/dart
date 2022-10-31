@@ -1,7 +1,9 @@
 ﻿using dart_core_api.Contexts;
+using dart_core_api.Hubs;
 using dart_core_api.Schemas.MainSchema;
 using dart_core_api.Services.Base;
 using dart_core_api.Services.System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace dart_core_api.Services.Project
 {
     public interface IProjectService : IBaseService<ProjectModel>
     {
-
+        void Test(ContainerHub hub);
     }
     public class ProjectService : BaseService<ProjectModel>, IProjectService 
     {
@@ -23,6 +25,11 @@ namespace dart_core_api.Services.Project
         {
             _dbMain = dbMain;
             _tools = tools;
+        }
+
+        public void Test(ContainerHub hub)
+        {
+
         }
 
     }

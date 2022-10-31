@@ -1,5 +1,6 @@
 ﻿using dart_core_api.Hubs;
 using dart_core_api.Services.Diagnostic;
+using dart_core_api.Services.Machine;
 using dart_core_api.Services.Project;
 using dart_core_api.Services.System;
 using Microsoft.AspNet.SignalR;

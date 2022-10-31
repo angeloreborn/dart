@@ -12,13 +12,18 @@ interface Props {
 export default function App(props: Props) {
   const [projets, setProjects] = React.useState<ProjectModel[]>();
   React.useEffect(() => {
-    client.project.All();
+    client.project.Test();
+    //client.windows.FileSearch("C:\Users\Angelo\source\repos", ".sln");
 
     client.project.connection.on('All', (projects: ProjectModel[]) => {
-      console.log('all projects');
-      console.log(projects);
       setProjects(projects);
     });
+
+    client.project.connection.on(client.windows.FileSearch.name, (file: string) => {
+      console.log(file);
+    });
+
+
   }, []);
 
   function requestAllProjects() {
