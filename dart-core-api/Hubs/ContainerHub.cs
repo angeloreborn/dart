@@ -20,7 +20,7 @@ namespace dart_core_api.Hubs
             MethodInfo? serviceMethodInfo = serviceType.GetMethod(method);
             if (serviceMethodInfo == null) return;
             ParameterInfo[] paramInfo = serviceMethodInfo.GetParameters();
-            List<object> invokedParams = new List<object>();
+            List<object?> invokedParams = new List<object?>();
             foreach (var param in paramInfo)
             {
                 object? paramValue = null;
