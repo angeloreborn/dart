@@ -11,29 +11,24 @@ interface Props {
 
 export default function App(props: Props) {
   const [projets, setProjects] = React.useState<ProjectModel[]>();
+
   React.useEffect(() => {
-    client.project.Test();
-    //client.windows.FileSearch("C:\Users\Angelo\source\repos", ".sln");
+     client.project.bind_All(setProjects) // bind directly to state
+     client.project.bind_All(handleProjects) // bind to function
 
-    client.project.connection.on('All', (projects: ProjectModel[]) => {
-      setProjects(projects);
-    });
+  }, [projets]);
 
-    client.project.connection.on(client.windows.FileSearch.name, (file: string) => {
-      console.log(file);
-    });
+  const handleProjects = (projects: ProjectModel[])=> {
+    console.log(projects);
+  }
 
-
-  }, []);
-
-  function requestAllProjects() {
+  const getProjects = () =>{
     client.project.All();
   }
 
   return (
     <Section>
-      <button onClick={requestAllProjects}>Reload</button>
-
+      <button onClick={getProjects}>Get Projects</button>
       {projets?.map((p) => {
         return (
           <h1>

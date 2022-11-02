@@ -53,7 +53,7 @@ namespace dart_core_api.Hubs
                 invokedParams.Add(paramValue);
             }
             var arg = serviceMethodInfo.Invoke(service, invokedParams.ToArray());
-            await Clients.All.SendAsync(method, arg);
+            await Clients.All.SendAsync("bind_"+ method, arg);
         }
     }
 }
