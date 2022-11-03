@@ -4,21 +4,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dart_core_api.Models
 {
-    public class BaseModel
+    public interface IBaseModel : IModifiable, ISoftDeletable, ICreatable
+    {
+        public long Id { get; set; }
+    }
+    public class BaseModel : IBaseModel
     {
         [Key]
         public long Id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Guid { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedDate { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime ModifiedDate { get; set; }
+        [DefaultValue(false)]
+        public bool Deleted { get; set; }
     }
     public interface IModifiable
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime ModifiedDate { get; set; }
+    }
+    public interface ICreatable
+    {
+        public DateTime CreatedDate { get; set; }
     }
     public interface ISoftDeletable
     {
-        [DefaultValue(false)]
-        public bool SoftDeleted { get; set; }
+        public bool Deleted { get; set; }
     }
 }

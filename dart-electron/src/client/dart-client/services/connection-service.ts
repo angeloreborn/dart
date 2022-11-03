@@ -30,4 +30,8 @@ export class ConnectionService<T>{
     public async AllAs(): Promise<SeviceReponse>{
         return await this.invokeService(this.AllAs.name)
     }
+
+    public async bind_AllAs<TOut>(handler: (reponse: TOut[]) => void){
+        this.connection.on(this.bind_All.name, (response: TOut[])=> handler(response))
+    }
 }
