@@ -11,10 +11,5 @@ namespace dart_core_api.Controllers
         {
             this.DiagnosticService = DiagnosticService;
         }
-        [HttpGet(Name = "Ping")]
-        public ServiceResponse Ping(int waitMilliseconds = 0)
-        {
-            return DiagnosticService.InvokeWait(waitMilliseconds);
-        }
     }
 }

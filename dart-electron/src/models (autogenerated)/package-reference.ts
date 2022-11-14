@@ -9,8 +9,8 @@ import { IModifiable } from "./i-modifiable";
 import { ISoftDeletable } from "./i-soft-deletable";
 import { ICreatable } from "./i-creatable";
 
-export class DiagnosticModel extends BaseModel implements IBaseModel, IModifiable, ISoftDeletable, ICreatable {
-    naRuntime: number;
-    msRuntime: number;
-    scRuntime: number;
+export class PackageReference extends BaseModel implements IBaseModel, IModifiable, ISoftDeletable, ICreatable {
+    packageName: string;
+    packageVersion: string;
+    includeAssets: boolean;
 }

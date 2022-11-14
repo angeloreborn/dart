@@ -2,7 +2,7 @@
 
 namespace dart_core_api.Schemas.MainSchema
 {
-    public class PackageReferenceModel : BaseModel
+    public class PackageReference : BaseModel
     {
         public string PackageName { get; set; }
         public string PackageVersion { get; set; }

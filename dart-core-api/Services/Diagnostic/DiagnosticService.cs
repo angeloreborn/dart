@@ -16,12 +16,6 @@ namespace dart_core_api.Services.Diagnostic
 {
     public interface IDiagnosticService : IBaseService<DiagnosticModel>
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="millisecondsTimeout"></param>
-        /// <returns></returns>
-        ServiceResponse InvokeWait(int millisecondsTimeout);
     }
     public class DiagnosticService : BaseService<DiagnosticModel>, IDiagnosticService
     {
@@ -31,13 +25,6 @@ namespace dart_core_api.Services.Diagnostic
         {
             _diagnosticDbContext = diagnosticDbContext;
             _tools = tools;
-        }
-
-        public ServiceResponse InvokeWait(int millisecondsTimeout)
-        {
-            ServiceResponse response = new ServiceResponse();
-            Thread.Sleep(millisecondsTimeout);
-            return response.PassResponse();
-        }     
+        }   
     }
 }

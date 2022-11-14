@@ -1,0 +1,248 @@
+{
+  "ProjectsInOrder": [
+    {
+      "ProjectName": "dart-core",
+      "RelativePath": "dart-core\\dart-core.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-core\\dart-core.csproj",
+      "ProjectGuid": "{2A423310-B006-4269-9B72-93D9F6465FD2}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    {
+      "ProjectName": "dart-core-api",
+      "RelativePath": "dart-core-api\\dart-core-api.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-core-api\\dart-core-api.csproj",
+      "ProjectGuid": "{D0AB2BED-49BF-40EF-A7AF-C1D1481F1707}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    {
+      "ProjectName": "dart-main",
+      "RelativePath": "dart-main\\dart-main.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-main\\dart-main.csproj",
+      "ProjectGuid": "{D403FF1D-4DCA-46DF-A58D-2473CDCC9BD0}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    {
+      "ProjectName": "dart-schema",
+      "RelativePath": "dart-schema\\dart-schema.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-schema\\dart-schema.csproj",
+      "ProjectGuid": "{F6DD55CD-601D-4A6F-BA75-C47A12D89031}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    {
+      "ProjectName": "dart-ai-classifier",
+      "RelativePath": "dart-ai-classifier\\dart-ai-classifier.pyproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-ai-classifier\\dart-ai-classifier.pyproj",
+      "ProjectGuid": "{0B991EAA-60D4-4DA5-9A98-A3A4AA231625}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": false
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": false
+        }
+      },
+      "ProjectType": 0
+    }
+  ],
+  "ProjectsByGuid": {
+    "{2A423310-B006-4269-9B72-93D9F6465FD2}": {
+      "ProjectName": "dart-core",
+      "RelativePath": "dart-core\\dart-core.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-core\\dart-core.csproj",
+      "ProjectGuid": "{2A423310-B006-4269-9B72-93D9F6465FD2}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    "{D0AB2BED-49BF-40EF-A7AF-C1D1481F1707}": {
+      "ProjectName": "dart-core-api",
+      "RelativePath": "dart-core-api\\dart-core-api.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-core-api\\dart-core-api.csproj",
+      "ProjectGuid": "{D0AB2BED-49BF-40EF-A7AF-C1D1481F1707}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    "{D403FF1D-4DCA-46DF-A58D-2473CDCC9BD0}": {
+      "ProjectName": "dart-main",
+      "RelativePath": "dart-main\\dart-main.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-main\\dart-main.csproj",
+      "ProjectGuid": "{D403FF1D-4DCA-46DF-A58D-2473CDCC9BD0}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    "{F6DD55CD-601D-4A6F-BA75-C47A12D89031}": {
+      "ProjectName": "dart-schema",
+      "RelativePath": "dart-schema\\dart-schema.csproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-schema\\dart-schema.csproj",
+      "ProjectGuid": "{F6DD55CD-601D-4A6F-BA75-C47A12D89031}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": true
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": true
+        }
+      },
+      "ProjectType": 1
+    },
+    "{0B991EAA-60D4-4DA5-9A98-A3A4AA231625}": {
+      "ProjectName": "dart-ai-classifier",
+      "RelativePath": "dart-ai-classifier\\dart-ai-classifier.pyproj",
+      "AbsolutePath": "C:\\Users\\Angelo\\Desktop\\Electron\\dart\\dart\\dart\\dart-ai-classifier\\dart-ai-classifier.pyproj",
+      "ProjectGuid": "{0B991EAA-60D4-4DA5-9A98-A3A4AA231625}",
+      "ParentProjectGuid": null,
+      "Dependencies": [],
+      "ProjectConfigurations": {
+        "Debug|Any CPU": {
+          "ConfigurationName": "Debug",
+          "PlatformName": "AnyCPU",
+          "FullName": "Debug|AnyCPU",
+          "IncludeInBuild": false
+        },
+        "Release|Any CPU": {
+          "ConfigurationName": "Release",
+          "PlatformName": "AnyCPU",
+          "FullName": "Release|AnyCPU",
+          "IncludeInBuild": false
+        }
+      },
+      "ProjectType": 0
+    }
+  },
+  "SolutionConfigurations": [
+    {
+      "ConfigurationName": "Debug",
+      "PlatformName": "Any CPU",
+      "FullName": "Debug|Any CPU"
+    },
+    {
+      "ConfigurationName": "Release",
+      "PlatformName": "Any CPU",
+      "FullName": "Release|Any CPU"
+    }
+  ]
+}
